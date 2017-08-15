@@ -17,8 +17,8 @@ class App extends React.Component {
                 <h1> cool swee awesome yeeee </h1>
                 <nav>
                   <ul>
-                    <li><Link to='/welcome/signup'> signup </Link> </li>
-                    <li><Link to='/welcome/login'> login </Link> </li>
+                    <li><Link to='/welcome/login'>login</Link></li>
+                    <li><Link to='/welcome/signup'>signup</Link></li>
                   </ul>
                 </nav>
               </header>
@@ -31,5 +31,5 @@ class App extends React.Component {
     )
   }
 }
-
+//
 export default App

@@ -1,38 +1,30 @@
 import React from 'react'
-import {connect} from 'react-redux'
+// import {connect} from 'react-redux'
 import AuthForm from '../auth-form'
 import * as util from '../../lib/util.js'
-import {signupRequest, loginRequest} from '../../action/auth-actions.js'
-
+// import {signupRequest, loginRequest} from '../../action/auth-actions.js'
+//
 class LandingContainer extends React.Component {
   render(){
     let {params} = this.props.match
-    console.log('history', this.props.history)
-    let handleComplete = params.auth === 'login' 
-      ? this.props.login 
-      : this.props.signup
-
-    return (
+    console.log(params)
+    return(
       <div>
-        <AuthForm 
-          auth={params.auth} 
-          onComplete={handleComplete} 
-          />
+        {util.renderIf(params.auth === 'signup',
+          <div>
+            <p>hello signup</p>
+            <AuthForm auth='signup' />
+          </div>)}
+
+        {util.renderIf(params.auth === 'login',
+          <div>
+            <p>hello login</p>
+            <AuthForm auth='login' />
+          </div>)}
 
       </div>
     )
   }
 }
-
-let mapStateToProps = () => ({})
-let mapDispatchToProps = (dispatch) => {
-  return {
-    signup: (user) => dispatch(signupRequest(user)),
-    login: (user) => dispatch(loginRequest(user)),
-  }
-}
-
-export default connect(
-  mapStateToProps, 
-  mapDispatchToProps
-)(LandingContainer)
+//
+export default LandingContainer
