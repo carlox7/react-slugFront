@@ -16,6 +16,7 @@ export default (state=null, action) => {
     validateProfileCreate(payload)
     return {...state, ...payload}
   case 'LOGOUT':
+    return null
   default:
     return state
   }
